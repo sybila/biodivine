@@ -146,20 +146,20 @@ provided in [some repository]().*
 
 ## Specification
 
-*!!! Specification section contains all technical details of the project. You can define you own sections based on the
-project you are proposing. The only mandatory section are outputs. However, we recommend you at least formally
-define the problem you are solving (define inputs, expected properties, ), the proposed solution
- (algorithm pseudo-code, data relationships, chosen tools and technologies) and sketch some details of the solution implementation
-(define interfaces)
-
-The content in it is mostly optional 
-(except for Outputs), but we recommend giving as much information as possible in order to fully specify
-what, how and why should be implemented.*
-
-### Preliminaries
-
-*!!! OPTIONAL: List of formal definitions and notations which is used to describe the project. Example: Define
-a boolean network, define *
+*!!! MANDATORY: Specification section contains all technical details of the project. You can define your own sections based on the project you are proposing. The only mandatory section is Outputs. However, we recommend you at least formally define the problem you are solving (define inputs, expected properties), the proposed solution (algorithm pseudo-code, data relationships, chosen tools and technologies) and sketch some details of the solution implementation (define interfaces).*
+ 
+ *!!! Examples of OPTIONAL sections: Requirements (what have to be satisfied in order to declare the task as successfully finished), Preliminaries (list of formal definitions and notations which is used to describe the project), Problem definition (explain the problem formally/in detail), Solution (what is expected from the solution and how it should be evaluated - be as exact as possible, use formal definitions, references, algorithm pseudo-code).*
 
 ### Outputs
+
+*!!! MANDATORY: Describe how exactly the outputs should look like. Be as specific as possible or give a list of possible alternatives. Example: formal definition of the proposed problem written in a LaTex document; a standalone script written in Python with a model in XY format as a parameter, returns a model in format AB; visualisation of XY will be integrated into online platform AB.*
  
+## Reports
+
+### Interim
+
+*!!! OPTIONAL: In case of partial accomplishment or suspension of the project, it is suitable to write a short report about the current state of the proposal, what has been already achieved and what haven't been. This helps to keep track of the progress of the proposal. It is possible to write multiple interim reports. If possible, a particular commit in a repository or another form of progress should be attached.*
+
+### Final
+
+*!!! MANDATORY: When the proposal is finished, here you have a place to sum up the outputs, evaluate the solution and overall convince the other maintainers that the proposal is completed. Also link to source code, documentation, publications or other external materials.*
