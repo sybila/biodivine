@@ -14,7 +14,7 @@
 
 ### Background
 
-BioChemical Space Language (BCSL) serves as description formalism for general BioChemical Space annotation format of 
+BioChemical Space Language (BCSL) serves as description formalism for general BioChemical Space annotation format [[3](#literature)] of 
 biological objects and processes. The type of the language is so-called *rule-based*, an abstraction above traditional 
 reaction-based formalism. Instead of expressing interactions between particular objects, we talk about *types* of the objects. 
 This way, the description is more concise. Moreover, the language is using several unique abstractions which fit for writing 
@@ -24,7 +24,7 @@ biochemical processing while trying to keep its syntax as readable as possible.
 
 Despite advantages of particular abstractions of BCSL, it is very useful to relate such language to a standard 
 notation for better sharing and processing options for other tools and researchers. There is a well-established standard 
-for reaction-based systems - Systems Biology Markup Language (SBML). Recently, this standard was extended for rule-based 
+for reaction-based systems - Systems Biology Markup Language (SBML) [4]. Recently, this standard was extended for rule-based 
 systems by a package called SBML-multi. The automatic translation to this language is a crucial aspect for further usage of BCSL.
 
 ### Solution
@@ -56,7 +56,8 @@ be first checked whether it satisfies requirements for model translation.
 
 ## Specification
 
-The goal of this task is separated into two subtasks: 
+The goal of this task is separated into two subtasks:
+
 **(a)** Find a relation between BCSL model and SBML-multi standard:
 
 Determine whether the SBML-multi covers all the features of BCSL. In the positive case, these features 
@@ -71,6 +72,7 @@ formally defined in subtask (a).
 ### Requirements
 
 **(a)**: Understanding BCSL formal definition [[1](#literature)] and SBML-multi specification [[2](#literature)], basic knowledge of writing mathematical definitions.
+
 **(b)**: Be familiar with eBCSgen implementation on the level of extending its functionality and re-usage of 
 implemented parts. Knowledge of Python v.3+ and Galaxy framework are beneficial, but not mandatory.
 
@@ -81,13 +83,14 @@ implemented parts. Knowledge of Python v.3+ and Galaxy framework are beneficial,
 
 (optional)
 
-* Biochemical Space: A Framework for Systemic Annotation of Biological Models, CS2Bio 2014 [:page_facing_up:](https://ac.els-cdn.com/S1571066114000590/1-s2.0-S1571066114000590-main.pdf?_tid=15e9629c-ff03-484b-afeb-f6a56da41022&acdnat=1540211331_65dbb0acf63aaec73d118deef15360ae)
-* SBML at 18: More Sophisticated, but with Room to Grow (2018 Version)
+* [3] Biochemical Space: A Framework for Systemic Annotation of Biological Models, CS2Bio 2014 [:page_facing_up:](https://ac.els-cdn.com/S1571066114000590/1-s2.0-S1571066114000590-main.pdf?_tid=15e9629c-ff03-484b-afeb-f6a56da41022&acdnat=1540211331_65dbb0acf63aaec73d118deef15360ae)
+* [4] SBML at 18: More Sophisticated, but with Room to Grow (2018 Version)
 
 ### Outputs
 
 **(a)**: Report and formal description of the relation, preferably written in LaTex. The precise description of individual 
 steps and encountered problems (prepared for publication purposes). 
+
 **(b)**: A single callable Python 3 function with BCSL model as a parameter, returns a SBML-multi output file. 
 The functionality can be divided into multiple scripts if needed, but entire functionality has to be callable by one 
 function. The script will be integrated into the user interface of Pithya Galaxy framework as a separate callable job 
