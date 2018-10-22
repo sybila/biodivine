@@ -2,7 +2,7 @@
 
 **Maintainer:** Matej Troják (xtrojak@fi.muni.cz)
 
-**Participants:** TBA
+**Participants:** Lukrécia Mertová
 
 **Status:** Draft 
 
@@ -29,49 +29,25 @@ in the case of the qualitative setting.
 
 ### Solution
 
-We will extend BCSL rules by possibility to define *rate law*, an expression describing the probability of the rule to happen.
-Then, it is necessary to define how such extended model behaves, i.e. define its semantics. Particularly, we would like to 
-define stochastic and deterministic simulation....
-
-TBA
+We will extend BCSL rules by possibility to define *rate law*, an expression describing the probability of the rule to happen and extend BCSgen tool by this functionality.
 
 ### Scope
 
-*!!! OPTIONAL: Describe how much work is expected for this proposal. How complicated are the sub-tasks or how
-suited is it for student work. Simplified example: The project can be used as a simple bachelors thesis. However,
-the implementation should be fairly simple as parsers for both formats are already available. The core of the work 
-is to understand both formats and decide on the exact form of translation.*
+A student project or part of a bigger project, it is work for 1-2 people for at most one semester.
 
 ### Challenges
 
-*!!! OPTIONAL: List the possible risks and challenges of this proposal. What can make the project fail, what
-can make it obsolete, what are the most complicated/risky parts of the proposal. Outline how you plan to proceed
-if some problems arise (plan B). The purpose of this section is for the authors to also fully explore
-the disadvantages/problems of their solution, as most authors tend to initially "oversell" their solutions. Example:
-Format AB can represent FG, which we currently do not support in BC. We plan to find a way to encode FG in BC.
-If no such way can be found, we will either restrict the functionality to models which do not contain FG, 
-or given enough time, propose a modification of BC to support FG (as a new BEEP or as modification of
-this BEEP).*
-
-### Extensions
-
-*!!! OPTIONAL: Possible secondary goals and objectives. Example: Format AB contains redundant information
-which we usually don't want to include into BC. Design static analysis which can identify this redundant data 
-in the BC structure and exclude it after the conversion. This approach can be also used to exclude redundant data
-from other sources, as it works for a general BC model.*
-
-### Related work
-
-*!!! OPTIONAL: Give references to other tools, papers or libraries which try to solve similar problem or which can be
-helpful when implementing the proposal. Example: The are two parsers for the AB format, [Foo]() and [Goo](). 
-AB format can be also converted to GH using [Lorem Ipsum](). Format BC can be processed using utilities
-provided in [some repository]().*
+Quantitative semantics for rule-based systems is still not a well-established field, might require non-trivial effort in studying the relevant literature.
 
 ## Specification
 
-*!!! MANDATORY: Specification section contains all technical details of the project. You can define your own sections based on the project you are proposing. The only mandatory section is Outputs. However, we recommend you at least formally define the problem you are solving (define inputs, expected properties), the proposed solution (algorithm pseudo-code, data relationships, chosen tools and technologies) and sketch some details of the solution implementation (define interfaces).*
- 
- *!!! Examples of OPTIONAL sections: Requirements (what have to be satisfied in order to declare the task as successfully finished), Preliminaries (list of formal definitions and notations which is used to describe the project), Problem definition (explain the problem formally/in detail), Solution (what is expected from the solution and how it should be evaluated - be as exact as possible, use formal definitions, references, algorithm pseudo-code).*
+The goal of the task is to extend BCSL by the possibility to express rate law, define semantics for such extended models, and implement the extension to BCSgen tool. The task can be divided into three subtasks:
+
+**(a)** Investigate possible solutions (for example, check other rule-based languages and their approach to solving this problem). The goal of this task is to choose an optimal solution such that (1) the following task is manageable, (2) BCSL keeps its human-readable feature, and (2) allows to express rate laws as general as possible.
+
+**(b)** Define semantics for approach chosen in task (a). Generally, it means for an extended BCSL model to define a semantics function which describes the behaviour of the modelled system over time. There are multiple ways how to solve this task. We require a (1) stochastic semantics, which implies [Continuous-time Markov chain](https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain) and (2) deterministic semantics, which models an average behaviour of the modelled system. In both cases, it is necessary to make sure the solution works for particular admissible rate laws. It was shown it works for [mass action](https://en.wikipedia.org/wiki/Law_of_mass_action) and (maybe) for enzymatic kinetics [Michaelis - Menten](http://www.cs.ucsb.edu/~cse/Files/stoch_2011.pdf), but other more general laws are questionable.
+
+**(c)** The defined solution will be integrated into BCSgen (and its online version eBCSgen) such that it supports the development of such model (model editor extension) and analysis (simulation and other types). It particularly means to extend the rule parser (by changing the language's grammar) and modify algorithms for transition system generating and enabling the simulation of the models (in both stochastic and deterministic settings).
 
 ### Outputs
 
