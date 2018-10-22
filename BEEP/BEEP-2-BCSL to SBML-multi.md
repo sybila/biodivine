@@ -35,7 +35,7 @@ from BCSL format to SBML-multi. The script will be created as a part of [BCSgen]
 
 ### Scope
 
-The project can be used as a simple bachelor's thesis or a student project. Work is suitable for two semesters - 
+The project can be used as a bachelor's thesis or a student project. Work is suitable for two semesters - 
 approximately 2/3 of the first
 semester is spent by studying the mandatory literature, by the end of the semester the formal relation of
 languages should be in a state of finalisation. In the beginning of the second semester the relation is 
