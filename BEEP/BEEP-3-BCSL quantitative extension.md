@@ -14,7 +14,7 @@
 
 ### Background
 
-BioChemical Space Language (BCSL) serves as description formalism for general BioChemical Space annotation format [[3](#literature)] of 
+BioChemical Space Language (BCSL) serves as description formalism for general BioChemical Space annotation format of 
 biological objects and processes. The type of the language is so-called *rule-based*, an abstraction above traditional 
 reaction-based formalism. Instead of expressing interactions between particular objects, we talk about *types* of the objects. 
 This way, the description is more concise. Moreover, the language is using several unique abstractions which fit for writing 
@@ -51,7 +51,7 @@ The goal of the task is to extend BCSL by the possibility to express rate law, d
 
 ### Outputs
 
-The subtasks (a) and (b) will be written down and formalised in paper *Parameter Synthesis for Rule-Based Models in Biochemical Space Language* and will serve as base which enables the paramether synthesis for rule-based models. The paper will be published on a conference.
+The subtasks (a) and (b) will be written down and formalised in paper [*Parameter Synthesis for Rule-Based Models in Biochemical Space Language*](https://svn.fi.muni.cz/fi/xsafran1_HSB2019_BCSL/) and will serve as base which enables the paramether synthesis for rule-based models. The paper will be published on a conference.
 
 The subtask (c) will be implemented within BCSgen tool. It particularly means to extend its rule parser (by changing the language's grammar) and modify algorithms for transition system generating and enabling the simulation of the models (in both stochastic and deterministic settings).
  
