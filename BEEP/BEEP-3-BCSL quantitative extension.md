@@ -2,7 +2,7 @@
 
 **Maintainer:** Matej Troják (xtrojak@fi.muni.cz)
 
-**Participants:** Lukrécia Mertová
+**Participants:** Lukrécia Mertová, Matej Troják
 
 **Status:** Draft 
 
