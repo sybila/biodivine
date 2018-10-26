@@ -47,18 +47,12 @@ The goal of the task is to extend BCSL by the possibility to express rate law, d
 
 **(b)** Define semantics for approach chosen in task (a). Generally, it means for an extended BCSL model to define a semantics function which describes the behaviour of the modelled system over time. There are multiple ways how to solve this task. We require a (1) stochastic semantics, which implies [Continuous-time Markov chain](https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain) and (2) deterministic semantics, which models an average behaviour of the modelled system. In both cases, it is necessary to make sure the solution works for particular admissible rate laws. It was shown it works for [mass action](https://en.wikipedia.org/wiki/Law_of_mass_action) and (maybe) for enzymatic kinetics [Michaelis - Menten](http://www.cs.ucsb.edu/~cse/Files/stoch_2011.pdf), but other more general laws are questionable.
 
-**(c)** The defined solution will be integrated into BCSgen (and its online version eBCSgen) such that it supports the development of such model (model editor extension) and analysis (simulation and other types). It particularly means to extend the rule parser (by changing the language's grammar) and modify algorithms for transition system generating and enabling the simulation of the models (in both stochastic and deterministic settings).
+**(c)** The defined solution will be integrated into BCSgen (and its online version eBCSgen) such that it supports the development of such model (model editor extension) and analysis (simulation and other types).
 
 ### Outputs
 
-*!!! MANDATORY: Describe how exactly the outputs should look like. Be as specific as possible or give a list of possible alternatives. Example: formal definition of the proposed problem written in a LaTex document; a standalone script written in Python with a model in XY format as a parameter, returns a model in format AB; visualisation of XY will be integrated into online platform AB.*
+The subtasks (a) and (b) will be written down and formalised in paper *Parameter Synthesis for Rule-Based Models in Biochemical Space Language* and will serve as base which enables the paramether synthesis for rule-based models. The paper will be published on a conference.
+
+The subtask (c) will be implemented within BCSgen tool. It particularly means to extend its rule parser (by changing the language's grammar) and modify algorithms for transition system generating and enabling the simulation of the models (in both stochastic and deterministic settings).
  
 ## Reports
-
-### Interim
-
-*!!! OPTIONAL: In case of partial accomplishment or suspension of the project, it is suitable to write a short report about the current state of the proposal, what has been already achieved and what haven't been. This helps to keep track of the progress of the proposal. It is possible to write multiple interim reports. If possible, a particular commit in a repository or another form of progress should be attached.*
-
-### Final
-
-*!!! MANDATORY: When the proposal is finished, here you have a place to sum up the outputs, evaluate the solution and overall convince the other maintainers that the proposal is completed. Also link to source code, documentation, publications or other external materials.*
