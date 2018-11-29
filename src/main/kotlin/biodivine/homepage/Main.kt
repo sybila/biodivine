@@ -73,3 +73,4 @@ fun main(args: Array<String>) {
 
     homepage.makeSite(outFolder)
 }
+

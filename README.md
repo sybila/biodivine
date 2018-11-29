@@ -55,6 +55,10 @@ For more information about parameter synthesis in BioDivine, see TODO.
 
 Bifurcation analysis provides qualitative characterisation of model behaviour with respect to models parameters. It can be often viewed as an alternative to parameter synthesis when there are no specific use-given properties, but more general qualitative behavioural properties need to be explored.
 
+#### Other techniques: 
+parameter identification (which is the best parameter), experimental design 
+(give experiment to best update the results)
+
 ### Technology and development
 
 BioDivine is developed at the Sybila laboratory at the Masaryk University in Brno, Czechia. However, we accept all external contributions and are happy to collaborate with other entities. The project is maintained in great part with the help of student contributions. This aspect necessitates a specific approach to project management, as the variance and flux of developers contributing to the project can be significant. 
