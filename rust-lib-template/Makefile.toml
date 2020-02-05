@@ -19,12 +19,17 @@ dependencies = [
     "doc-katex",
 ]
 
-# Run benchmark tests with shields_up disabled.
-[tasks.bench]
+# Make a release build with shields_up enabled.
+[tasks.build-release-safe]
 command = "cargo"
-args = ["bench" , "--no-default-features"]
+args = ["build", "--release", "--features", "shields_up"]
 
-# Make a release build with shields_up disabled.
-[tasks.build-release]
+# Make a debug build with shields_up enabled.
+[tasks.build-safe]
 command = "cargo"
-args = ["build", "--release", "--no-default-features"]
+args = ["build", "--features", "shields_up"]
+
+# Make a test build with shields_up enabled.
+[tasks.test-safe]
+command = "cargo"
+args = ["test", "--features", "shields_up"]
