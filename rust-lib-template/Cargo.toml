@@ -19,3 +19,21 @@ shields_up = []
 # Enable rich docs for some online docs autogen services.
 [package.metadata.docs.rs]
 rustdoc-args = ["--html-in-header", "./res/docs-head.html"]
+
+# Before publishing, consider filling out and uncommenting these values.
+# Also see https://doc.rust-lang.org/cargo/reference/manifest.html for reference.
+#
+# [package]
+# description = "Some simple plaintext description"
+# documentation = "https://url.to/docs"
+# homepage = "https://url.to/homepage"
+# repository = "https://url.to/repo"
+# readme = "path/to/readme.md"
+# keywords = ["...", "..."] (up to five)
+# categories = ["...", "..."] (see crates.io/category_slugs)
+# license = "..." (valid SPDX 2.1 license name)
+#
+# [shields]
+# travis-ci = { repository = "user/repo" }
+# codecov = { repository = "user/repo" }
+# maintenance = { status = "..." } 
