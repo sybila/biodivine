@@ -61,13 +61,13 @@ All conventions are meant to be followed except when they are not:
  
  - Prefer longer, self contained module descriptions (ideally with usage example) instead of spreading the information accross the whole API of the module/struct/etc. This will enable us to quickly catch up to what the component is actually doing and how it should be used. Bottom line: If the method docs are more than one paragraph, they should probably be part of the module documentation instead.
  
- - Make parent modules as simple as possible. For example, declare a struct in the root module, but create a separate sub-module where you actually implement the methods of that struct or test the functionality (if the tests are complex). The goal is to make sure you can understand the "data layout" (structs) of each module by opening the root directory and its functionality by going through the names of the submodules. Also, the main part of the documentation should be in the root module, so that is why we keep it as clean as possible (so that the overview docs do not obscure the code). Use the following naming conventions for such modules:
+ - Make parent modules as simple as possible. For example, declare a struct in the root module, but create a separate sub-module where you actually implement the methods of that struct or test the functionality (if the tests are complex). The goal is to make sure you can understand the "data layout" (structs) of each module by opening the root directory and its functionality by going through the names of the submodules. Also, the main part of the documentation should be in the root module, so that is why we keep it as clean as possible (so that the overview docs do not obscure the code). In general, the names of non-public modules should start with `_`. Use the following naming conventions for such modules:
 
-   * `impl_<my_struct>`: general implementation of a struct. If the implementation is still too long, you can split it into more submodules named according to the functionality they provide.  
-   * `impl_<trait_name>_<my_struct>`: implementation of a trait for a struct (can be included in `impl_` module if it is simple enough, but for larger implementations, for example with helper function, definitely split it into separate submodule). If the trait is generic (e.g. `TryFrom`), you can also include the specific variant you are implementing, for example `impl_try_from_string_my_custom_collection`. If you have a structured `impl_` module, you can add it as a submodule as well.
-   * `macro_<my_macro>`: declaration of a macro.
-   * `test_<my_test>`: a test-only module that implements specific type of test. You can also use `test_<my_struct>` if you have a lot of tests for a specific struct.
-   * `fun_<my_function>`: if all you need to provide is a function, but a complex one, please also separate it into a special module (very small/simple functions can be part of the root module).
+   * `_impl_<my_struct>`: general implementation of a struct. If the implementation is still too long, you can split it into more submodules named according to the functionality they provide.  
+   * `_impl_<trait_name>_<my_struct>`: implementation of a trait for a struct (can be included in `impl_` module if it is simple enough, but for larger implementations, for example with helper functions, definitely split it into separate submodule). If the trait is generic (e.g. `TryFrom`), you can also include the specific variant you are implementing, for example `impl_try_from_string_my_custom_collection`. If you have a structured `impl_` module, you can add it as a submodule as well.
+   * `_macro_<my_macro>`: declaration of a macro.
+   * `_test_<my_test>`: a test-only module that implements specific type of test. You can also use `test_<my_struct>` if you have a lot of tests for a specific struct.
+   * `_fun_<my_function>`: if all you need to provide is a function, but a complex one, please also separate it into a special module (very small/simple functions can be part of the root module).
 
  - Remebmer that integration tests should go into the `tests` directory (each is a separate crate).
  
@@ -88,5 +88,6 @@ To use project internally, you don't have to publish it anywhere, cargo can impo
  - Make sure everything is properly tested (coverage) and continuous integration does not fail.
  - Consider these conventions as well as `https://rust-lang.github.io/api-guidelines/`.
  - Create a github release with an appropriate version tag.
- - Generate developer documentation, make sure everything is documented and that there are some tutorials to cover the most important functionality. Publish the developer docs to `biodivine.fi.muni.cz/docs/my-lib/<version_tag>/...`. 
+ - Generate developer documentation, make sure everything is documented and that there are some tutorials to cover the most important functionality. Publish the developer docs to `biodivine.fi.muni.cz/docs/<my_lib>/<version_tag>/...` (Look at `lib-bdd` for example on how to upload documentation - you also need to upload files to the `<my_lib>` folder).
+ - Don't forget to update links in badges to link to the latest release (some should update automatically, some need to be set manually).
  - See `https://doc.rust-lang.org/cargo/reference/publishing.html` for details on how to create and publish the artefact.  
