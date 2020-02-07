@@ -33,7 +33,7 @@ rustdoc-args = ["--html-in-header", "./res/docs-head.html"]
 # categories = ["...", "..."] (see crates.io/category_slugs)
 # license = "..." (valid SPDX 2.1 license name)
 #
-# [shields]
+# [badges]
 # travis-ci = { repository = "user/repo" }
 # codecov = { repository = "user/repo" }
 # maintenance = { status = "..." } 

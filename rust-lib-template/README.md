@@ -1,3 +1,13 @@
+[![Crates.io](https://img.shields.io/crates/v/<repository>?style=flat-square)](https://crates.io/crates/<repository>)
+[![Api Docs](https://img.shields.io/badge/biodivine-api--docs-yellowgreen?style=flat-square)](https://docs.rs/<repository>/<version>/)
+[![Travis (.org)](https://img.shields.io/travis/sybila/<repository>?style=flat-square)](https://travis-ci.org/sybila/<repository>)
+[![Codecov](https://img.shields.io/codecov/c/github/sybila/<repository>?style=flat-square)](https://codecov.io/gh/sybila/<repository>)
+[![GitHub issues](https://img.shields.io/github/issues/sybila/<repository>?style=flat-square)](https://github.com/sybila/<repository>/issues)
+[![Dev Docs](https://img.shields.io/badge/biodivine-dev--docs-orange?style=flat-square)](https://biodivine.fi.muni.cz/docs/<repository>/v<version>/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/sybila/<repository>?style=flat-square)](https://github.com/sybila/<repository>/commits/master)
+[![Crates.io](https://img.shields.io/crates/l/<repository>?style=flat-square)](https://github.com/sybila/<repository>/blob/master/LICENSE)
+[![GitHub top language](https://img.shields.io/github/languages/top/sybila/<repository>?style=flat-square)](https://github.com/sybila/<repository>)
+
 ## Biodivine Library Template
 
 This is a template project for a general Rust based Biodivine library. It comes with a few useful features pre-enabled. 
@@ -13,4 +23,5 @@ To fully initialize the template, perform the following steps:
 
  - In `Cargo.toml`, specify package name, author, dependencies (if needed, use dev-dependencies for dependencies used only for tests).
  - Enable continuous builds on Travis and code coverage on Codecov. Remember to set Codecov token environment variable to enable coverage reports.
- - Rewrite this readme :) 
+ - Rewrite this readme (including shield urls) :) 
+ - Add basic info and shilds to the root readme of the biodivine repo.
