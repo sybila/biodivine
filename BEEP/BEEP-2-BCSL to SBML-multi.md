@@ -14,11 +14,11 @@
 
 ### Background
 
-BioChemical Space Language (BCSL) serves as description formalism for general BioChemical Space annotation format [[3](#literature)] of biological objects and processes. The type of the language is so-called *rule-based*, an abstraction above traditional reaction-based formalism. Instead of expressing interactions between particular objects, we talk about *types* of the objects. This way, the description is more concise. Moreover, the language is using several unique abstractions which fit for writing biochemical processing while trying to keep its syntax as readable as possible. 
+BioChemical Space Language (BCSL) serves as a description formalism for general BioChemical Space annotation format [[3](#literature)] of biological objects and processes. The type of the language is so-called *rule-based*, an abstraction above traditional reaction-based formalism. Instead of expressing interactions between particular objects, we talk about *types* of the objects. This way, the description is more concise. Moreover, the language is using several unique abstractions which fit for writing biochemical processing while trying to keep its syntax as readable as possible. 
 
 ### Problem
 
-Despite advantages of particular abstractions of BCSL, it is very useful to relate such language to a standard notation for better sharing and processing options for other tools and researchers. There is a well-established standard for reaction-based systems - Systems Biology Markup Language (SBML) [[4](#literature)]. Recently, this standard was extended for rule-based systems by a package called SBML-multi [[2](#literature)]. The automatic translation to this language is a crucial aspect for further usage of BCSL.
+Despite the advantages of particular abstractions of BCSL, it is very useful to relate such language to standard notation for better sharing and processing options for other tools and researchers. There is a well-established standard for reaction-based systems - Systems Biology Markup Language (SBML) [[4](#literature)]. Recently, this standard was extended for rule-based systems by a package called SBML-multi [[2](#literature)]. The automatic translation to this language is a crucial aspect for further usage of BCSL.
 
 ### Solution
 
@@ -27,7 +27,7 @@ from BCSL format to SBML-multi. The script will be created as a part of [eBCSgen
 
 ### Scope
 
-The project can be used as a bachelor's thesis or a student project. Work is suitable for two semesters - approximately 2/3 of the first semester is spent by studying the mandatory literature, by the end of the semester the formal relation of languages should be in a state of finalisation. Until the middle of the second semester the relation is finished and the specified script is implemented and deployed as an extension of eBCSgen functionality.
+The project can be used as a bachelor's thesis or a student project. Work is suitable for two semesters - approximately 2/3 of the first semester is spent by studying the mandatory literature; by the end of the semester, the formal relation of languages should be in a state of finalisation. Until the middle of the second semester the relation is finished and the specified script is implemented and deployed as an extension of eBCSgen functionality.
 
 ### Challenges
 
