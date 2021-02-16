@@ -81,6 +81,8 @@ All conventions are meant to be followed except when they are not:
  
  - Passing by value/reference: In general, if something implements Copy, default decision should be to pass it by value. In case of a non-copy struct, use pass by reference. Of course, sometimes pass by reference is necessary for Copy types as well, but in general, by implementing Copy, you indicate that this type should be treated as "atomic" value. Also, please make sure to implement Copy only for types where this is reasonable - small, flat types.
 
+ - Avoid using `as` in production code. Conversions between numbers using `as` should be completely forbidden unless in the most trivial cases, since `as` does not check any overflows or other properties. It is easy to design a system where in practice, a larger value can appear and cause unexpected errors. Most types implement `try_from` methods or `checked_*` arithermetical operations that catch such behaviour.
+
 ## Publishing
 
 To use project internally, you don't have to publish it anywhere, cargo can import dependencies from git: `my-lib = { git = "https://url.to/my-lib.git" }`. However, once the library reaches certain level of maturity, it is recommended to also publish it to `crates.io`. When publishing, please make sure to follow these steps:
