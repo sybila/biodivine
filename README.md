@@ -12,7 +12,17 @@ Overview of currently developed Biodivine repositories:
 [![Dev Docs](https://img.shields.io/badge/docs-dev-orange?style=flat-square)](https://biodivine.fi.muni.cz/docs/biodivine-lib-bdd/v0.1.0/)
 [![GitHub last commit](https://img.shields.io/github/last-commit/sybila/biodivine-lib-bdd?style=flat-square)](https://github.com/sybila/biodivine-lib-bdd/commits/master)
 [![Crates.io](https://img.shields.io/crates/l/biodivine-lib-bdd?style=flat-square)](https://github.com/sybila/biodivine-lib-bdd/blob/master/LICENSE)
-[![GitHub top language](https://img.shields.io/github/languages/top/sybila/biodivine-lib-bdd?style=flat-square)](https://github.com/sybila/biodivine-lib-bdd)
+
+ - `biodivine-lib-param-bn`: Rust library for working with parametrised Boolean networks. It supports partially unknown networks with uninterpreted Boolean functions, basic static analysis as well as construction of fully symbolic asynchronous transition graphs.
+
+[![Crates.io](https://img.shields.io/crates/v/biodivine-lib-param-bn?style=flat-square)](https://crates.io/crates/biodivine-lib-param-bn)
+[![Api Docs](https://img.shields.io/badge/docs-api-yellowgreen?style=flat-square)](https://docs.rs/biodivine-lib-param-bn/)
+[![Continuous integration](https://img.shields.io/github/workflow/status/sybila/biodivine-lib-param-bn/build?style=flat-square)](https://github.com/sybila/biodivine-lib-param-bn/actions?query=workflow%3Abuild)
+[![Coverage](https://img.shields.io/codecov/c/github/sybila/biodivine-lib-param-bn?style=flat-square)](https://codecov.io/gh/sybila/biodivine-lib-param-bn)
+[![GitHub issues](https://img.shields.io/github/issues/sybila/biodivine-lib-param-bn?style=flat-square)](https://github.com/sybila/biodivine-lib-param-bn/issues)
+[![Dev Docs](https://img.shields.io/badge/docs-dev-orange?style=flat-square)](https://biodivine.fi.muni.cz/docs/biodivine-lib-param-bn/v0.1.0/)
+[![GitHub last commit](https://img.shields.io/github/last-commit/sybila/biodivine-lib-param-bn?style=flat-square)](https://github.com/sybila/biodivine-lib-param-bn/commits/master)
+[![Crates.io](https://img.shields.io/crates/l/biodivine-lib-param-bn?style=flat-square)](https://github.com/sybila/biodivine-lib-param-bn/blob/master/LICENSE)
 
 ## BioDivine
 
