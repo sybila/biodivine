@@ -2,6 +2,8 @@
 
 This project is the "biodivine workspace". It is meant to be a collection of multiple repositories that depend on each other, but are technically not a single "monorepo" because they are intended to be individually accessible. Consequently, this project is itself a git repository, but each subfolder is also its own git repository, via submodules. The dependencies between repositories are not path-based, but either commit or version based. When working fully within one submodule, that's fine. However, when working across multiple submodules, you can temporarily change these dependencies to be path based and resolve dependencies that way. Upon final review, a human will push all changes (and/or release them) and update the version strings where necessary. You don't have to concern yourself with that, as long as the modified submodules all build properly when you are done.
 
+The layout of the workspace (the library repositories, `biodivine-py` with the Python bindings of all libraries, and `biodivine-book` with the documentation of all libraries) is described in `README.md`. `biodivine-book` is a plain directory of this repository, not a submodule.
+
 Note that each project most likely contains its own `AGENTS.md` file. When you start working in a specific project, always read that file before anything else. If you are updating a project-specific `AGENTS.md` file, don't copy instructions that are already covered by this file.
 
 # Conventions
