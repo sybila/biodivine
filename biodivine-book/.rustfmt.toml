@@ -1,0 +1,4 @@
+# The examples are shown in the book, whose code column fits 88 characters without horizontal
+# scrolling; `scripts/check_book.py` enforces the same budget on every included region.
+max_width = 88
+edition = "2024"

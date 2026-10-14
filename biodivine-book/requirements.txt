@@ -1,0 +1,7 @@
+# The book's toolchain, pinned: Sphinx with MyST (Markdown), sphinx-design for the Rust/Python
+# example tabs, the Shibuya theme, and pytest for running the Python examples.
+Sphinx==9.0.4
+myst-parser==5.1.0
+sphinx-design==0.7.0
+shibuya==2026.7.12
+pytest

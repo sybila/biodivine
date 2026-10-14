@@ -1,0 +1,63 @@
+# The Rust examples of the book. Every example is a real program with assertions: `cargo test` runs
+# each of them (`test = true` with `harness = false` makes the test binary the example's `main`), and
+# `cargo run --example <name>` runs one. Examples are grouped by library, and an example's name is
+# `<library>_<file name>`; `scripts/check_book.py` checks that every file is listed here.
+[package]
+name = "biodivine-book"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.88"
+publish = false
+
+# The book documents the libraries as they are checked out in this workspace, so the libraries are
+# `path` dependencies on the submodules next to the book.
+[dependencies]
+biodivine-lib-xml-dom = { path = "../biodivine-lib-xml-dom" }
+
+[[example]]
+name = "xml_dom_editing"
+path = "examples/xml_dom/editing.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_gc"
+path = "examples/xml_dom/gc.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_getting_started"
+path = "examples/xml_dom/getting_started.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_namespaces"
+path = "examples/xml_dom/namespaces.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_parsing"
+path = "examples/xml_dom/parsing.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_pythonic"
+path = "examples/xml_dom/pythonic.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_threads"
+path = "examples/xml_dom/threads.rs"
+test = true
+harness = false
+
+[[example]]
+name = "xml_dom_validation"
+path = "examples/xml_dom/validation.rs"
+test = true
+harness = false
