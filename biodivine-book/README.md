@@ -33,6 +33,32 @@ make verify       # all of the above
 `make python-env` needs a Rust toolchain, because it builds the `biodivine-sys` extension. Run it
 again after changing a library or its Python bindings.
 
+### Python examples and the checked-out libraries
+
+On its own, `biodivine-py` does not build against the libraries in this workspace: its
+`biodivine-py-sys/Cargo.toml` depends on each library's `_sys` crate through git, pinned to a
+release tag. Built as it is, the extension would contain the released libraries, and the Python
+examples would silently test different code than the Rust examples, which use `path` dependencies.
+
+`make python-env` therefore overrides those dependencies for the duration of the build, without
+editing `biodivine-py`:
+
+* `SYS_PATCHES` in the [`Makefile`](Makefile) holds one Cargo `[patch]` per library, passed to
+  `maturin develop` as `--config 'patch."<git URL>".<crate>.path="<submodule>"'`. A `[patch]`
+  replaces every use of a crate from the given source with another copy of it; here, the git
+  dependency becomes the `_sys` crate of the submodule next to the book (and with it, the library
+  crate, which the `_sys` crate depends on through a `path`).
+* Cargo writes the patched sources into `biodivine-py/Cargo.lock`. The build runs between a backup
+  and a restore of that file, so the `biodivine-py` checkout stays unchanged, also when the build
+  fails.
+* Before building, it checks that the patched lock file contains no git dependency on a
+  `sybila/` repository, so a library that is added to `biodivine-py` without a line in
+  `SYS_PATCHES` fails the build instead of being tested in its released version. Adding a library
+  to the book means adding its line, following the existing one.
+
+The build output shows the result: every `biodivine-lib-*` crate is compiled from a path in this
+workspace, not from `https://github.com/sybila/...`.
+
 ## Writing a chapter
 
 * A chapter lives in the directory of its library and starts with its title; add it to the
