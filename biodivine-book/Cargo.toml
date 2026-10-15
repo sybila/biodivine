@@ -6,7 +6,7 @@
 name = "biodivine-book"
 version = "0.0.0"
 edition = "2024"
-rust-version = "1.88"
+rust-version = "1.95"
 publish = false
 
 # The book documents the libraries as they are checked out in this workspace, so the libraries are
