@@ -1,0 +1,74 @@
+# Publishes the book when a release tag is pushed. The workspace has no version of its own: a release
+# is a snapshot of the pinned repositories and the book, and its tag is the date of the snapshot,
+# `yyyy-mm-dd`. The book is deployed to https://biodivine.fi.muni.cz/book/<tag>/, and the `latest`
+# symlink next to it is pointed at the newest release (by date, so that tagging an older snapshot
+# later does not move it back).
+#
+# Secrets:
+# * `TS_OAUTH_CLIENT_ID`, `TS_OAUTH_SECRET`: a Tailscale OAuth client that can join the network of
+#   the documentation server.
+name: release
+
+on:
+  push:
+    tags:
+      - '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
+
+permissions:
+  contents: read
+
+jobs:
+  # The tag must be a real date (the tag filter above only checks the shape).
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          if [ "$(date -u -d "$GITHUB_REF_NAME" +%F 2>/dev/null)" != "$GITHUB_REF_NAME" ]; then
+            echo "The tag $GITHUB_REF_NAME is not a date of the form yyyy-mm-dd."
+            exit 1
+          fi
+
+  # Every check of a regular build; it also builds the book that is deployed.
+  build:
+    needs: tag
+    uses: ./.github/workflows/build.yml
+
+  # Copies the book built by the `build` stage to the documentation server, into its own directory
+  # of the book's deployment directory. An existing directory of the same tag is replaced.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: book
+          path: ${{ github.ref_name }}
+      - name: Package
+        run: zip -qr "book-$GITHUB_REF_NAME.zip" "$GITHUB_REF_NAME"
+      # Connect to the internal network.
+      - uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+      - name: Deploy
+        env:
+          TS_HOST: sybila-infra
+          DEPLOY_DIR: /root/sybila-infra/stratus/infra/biodivine/book
+          TAG: ${{ github.ref_name }}
+        run: |
+          ssh -o StrictHostKeyChecking=accept-new root@"$TS_HOST" true
+          scp "book-$TAG.zip" root@"$TS_HOST:/tmp/book-$TAG.zip"
+          # `latest` points at the newest release directory; dates in this format sort as text. The
+          # link is relative and replaced in one step (`-n`: never follow the old link into a
+          # directory, `-f`: replace it).
+          ssh root@"$TS_HOST" "
+              set -e
+              mkdir -p '$DEPLOY_DIR'
+              rm -rf '$DEPLOY_DIR/$TAG'
+              unzip -q -o /tmp/book-$TAG.zip -d '$DEPLOY_DIR'
+              rm /tmp/book-$TAG.zip
+              cd '$DEPLOY_DIR'
+              newest=\$(ls -d [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] | sort | tail -n 1)
+              ln -sfn \"\$newest\" latest"

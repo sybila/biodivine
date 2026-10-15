@@ -1,0 +1,88 @@
+name: build
+
+# Checks that the repositories of the workspace, at the commits this repository pins, still work
+# together, and builds the book. The repositories run their full test suites in their own CI; here,
+# each one gets a basic check (lints and tests at the pinned commit), and the book checks the
+# combination: its Rust examples use the library submodules through `path` dependencies, and its
+# Python examples (together with the test suite of `biodivine-py`) run against an extension built
+# from those same submodules.
+#
+# Runs on every push except to `feat/*`, `fix/*` and `chore/*` branches (which are checked through
+# their pull requests), on every pull request, and as the first stage of the release workflow, which
+# publishes the `book` artifact.
+on:
+  push:
+    branches-ignore:
+      - '**/feat/*'
+      - '**/fix/*'
+      - '**/chore/*'
+  pull_request:
+    branches:
+      - '*'
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  # The toolchain of the lints: pinned, so that a new Rust release cannot break the build on its own,
+  # and kept equal to the lint toolchain of the repositories themselves.
+  RUST_LINT_VERSION: "1.99.0"
+
+jobs:
+  # A basic check of every submodule at its pinned commit, as a dependent repository would see it:
+  # `biodivine-py` builds against the library releases it names, not against the submodules.
+  submodule:
+    strategy:
+      fail-fast: false
+      matrix:
+        repository: [biodivine-lib-xml-dom, biodivine-py]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ matrix.repository }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      # The `_sys` crates link against Python, and their tests start an interpreter in-process.
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ env.RUST_LINT_VERSION }}
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+      - run: cargo test --workspace
+
+  # Every check of the book (`make verify`: its structure, every Rust and Python example, and the
+  # HTML build), plus the Python test suite of `biodivine-py` against the checked-out libraries. The
+  # built book is uploaded as the `book` artifact.
+  book:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: biodivine-book
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ env.RUST_LINT_VERSION }}
+          components: rustfmt, clippy
+      - run: make python-env
+      - run: make verify
+      - name: Test biodivine-py against the checked-out libraries
+        run: .venv/bin/python -m pytest ../biodivine-py/biodivine
+      - uses: actions/upload-artifact@v7
+        with:
+          name: book
+          path: biodivine-book/_build
+          if-no-files-found: error
