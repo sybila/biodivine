@@ -7,6 +7,7 @@ with the documentation that covers all of them.
 | path | what it is |
 | --- | --- |
 | [`biodivine-lib-xml-dom`](https://github.com/sybila/biodivine-lib-xml-dom) | an XML DOM library: the `biodivine-lib-xml-dom` crate, plus its thin PyO3 wrapper crate |
+| [`biodivine-lib-sbml`](https://github.com/sybila/biodivine-lib-sbml) | an SBML library built on the XML DOM: the `biodivine-lib-sbml` crate, plus its thin PyO3 wrapper crate |
 | [`biodivine-py`](https://github.com/sybila/biodivine-py) | the Python bindings of every library: the `biodivine-sys` native extension and the `biodivine` package |
 | [`biodivine-book`](biodivine-book) | the Biodivine book: tutorials for every library, with runnable examples in Rust and Python |
 

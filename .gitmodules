@@ -1,3 +1,6 @@
+[submodule "biodivine-lib-sbml"]
+	path = biodivine-lib-sbml
+	url = git@github.com:sybila/biodivine-lib-sbml.git
 [submodule "biodivine-lib-xml-dom"]
 	path = biodivine-lib-xml-dom
 	url = git@github.com:sybila/biodivine-lib-xml-dom.git
