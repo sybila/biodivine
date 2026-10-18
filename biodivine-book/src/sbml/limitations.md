@@ -11,15 +11,21 @@ The exact contract, repeated here because it is the thing a newcomer needs first
 | level | versions | a model resolves? |
 | --- | --- | --- |
 | Level 3 | 1, 2 | **yes** |
-| Level 2 | 2, 3, 4, 5 | **yes** |
+| Level 2 | 1, 2, 3, 4, 5 | **yes** |
 | Level 1 | any | **no** - readable, but the model is not modelled |
 | anything else | any | no |
+
+Level 2 Version 1 is worth one sentence of its own, because it is the version a reader is most
+likely to get wrong by hand: its namespace is `http://www.sbml.org/sbml/level2`, with *no* version
+in it (the versioned namespace starts at Level 2 Version 2), and its objects are named rather than
+identified - a compartment of that version has a `name`, and reading its `id` finds nothing.
 
 A document of a level the library does not model is *readable*: the XML tree is there, the container
 reports its level and version, its MathML is typed, and it can be edited and written back. What is
 missing is the model: `document.model` is `None`, and validation says so with the `unmodelled-level`
-lint (`LibraryLint`, severity `Warning`). That is deliberate - a document this library cannot model
-is not a *broken* document - so a program that needs a model must check for one:
+lint, which is a `LibraryLint` of severity `INFO` - a diagnostic of this library rather than a rule
+of the specification, and not an error, because a document this library cannot model is not a
+*broken* document. A program that needs a model must therefore check for one:
 
 ```python
 document = sbml.reads(source)

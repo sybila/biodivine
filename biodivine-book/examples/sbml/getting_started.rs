@@ -1,10 +1,10 @@
-//  Book chapter "Getting started": read a model, look at it, change it, write it
-// back.
+//! Book chapter "Getting started": read a model, look at it, change it, write it
+//! back.
 //!
-//  Run with `cargo run --example sbml_getting_started`. The assertions are what makes
-// this file a
-//  test as well as an example: the book includes this file verbatim, so a chapter
-// cannot show code
+//! Run with `cargo run --example sbml_getting_started`. The assertions are what makes
+//! this file a
+//! test as well as an example: the book includes this file verbatim, so a chapter
+//! cannot show code
 //! that no longer works.
 
 use biodivine_lib_sbml::Sbml;

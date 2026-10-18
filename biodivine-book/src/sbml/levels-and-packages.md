@@ -138,7 +138,7 @@ The exact contract is:
 | level | versions | a model resolves? |
 | --- | --- | --- |
 | Level 3 | 1, 2 | yes, every version the library knows |
-| Level 2 | 2, 3, 4, 5 | yes |
+| Level 2 | 1, 2, 3, 4, 5 | yes, every version of the level |
 | Level 1 | any | **no** - the document is readable, the model is not modelled |
 | anything else | any | no |
 
@@ -176,9 +176,9 @@ validation report:
 ::::
 
 The lint is called `unmodelled-level`, it is a `LibraryLint` rather than a specification rule, and it
-is a `Warning`: the document is not wrong, it is just not a document this library models. A program
-that needs a model should therefore treat it as fatal, which is what the exception hierarchy makes
-easy - the lint is in the report, and the report is in the exception:
+is an `Info`: the document is not wrong, it is just not a document this library models. A program
+that needs a model should therefore treat the *absence* of a model as fatal rather than the lint,
+which is what the exception hierarchy makes easy - the report is in the exception:
 
 ```python
 issues = document.validate()

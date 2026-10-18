@@ -1,5 +1,5 @@
-//  Book chapter "Validation": the report of a validation pass, its severities, and
-// the guard that
+//! Book chapter "Validation": the report of a validation pass, its severities, and
+//! the guard that
 //! says part of a document was not walked.
 //!
 //! Run with `cargo run --example sbml_validation`.
