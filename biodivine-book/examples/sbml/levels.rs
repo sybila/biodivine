@@ -71,10 +71,9 @@ const L1V2: &str = r#"
 
 fn main() {
     // ANCHOR: resolve
-    // The library models Level 3 (every version) and Level 2 (from Version 2 on):
-    // reading such a
-    // document gives a model, and the accessors behave as they do for Level 3 Version
-    // 2.
+    // The library models Level 3 (every version) and Level 2 (every version,
+    // including the first one): reading such a document gives a model, and the
+    // accessors behave as they do for Level 3 Version 2.
     for (name, source) in [
         ("l3v1", L3V1),
         ("l3v2", L3V2),

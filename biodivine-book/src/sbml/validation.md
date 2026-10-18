@@ -57,9 +57,9 @@ says *what* is wrong without saying *where* is not much use on a document with a
 
 ## Severities
 
-A finding is an `Error`, a `Warning` or a `Note`. Only an `Error` means the document violates the
-specification; the other two are things a reader should know about, and a document with them is
-still a valid document. The *kind* of a rule is a separate axis: a `SpecRule` is a rule of the
+A finding is an `Error`, a `Warning` or a `Note` - which the API calls `INFO` and the Rust API calls
+`SbmlIssueSeverity::Info`. Only an `Error` means the document violates the specification; the other
+two are things a reader should know about, and a document with them is still a valid document. The *kind* of a rule is a separate axis: a `SpecRule` is a rule of the
 specification, and a `LibraryLint` is a diagnostic this library adds (an unused namespace
 declaration, a model that was not modelled).
 
