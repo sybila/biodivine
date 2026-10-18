@@ -65,6 +65,16 @@ CHAPTERS = {
     "xml-dom/python-usage.md": "Using the Python package",
     "xml-dom/limitations.md": "Known limitations and gotchas",
     "xml-dom/design-notes.md": "Design notes",
+    "sbml/index.md": "Biodivine SBML",
+    "sbml/getting-started.md": "Getting started",
+    "sbml/levels-and-packages.md": "Levels, packages and versions",
+    "sbml/object-model.md": "The object model",
+    "sbml/validation.md": "Validating a document",
+    "sbml/mathml.md": "MathML formulas",
+    "sbml/extensions.md": "Writing an SBML extension",
+    "sbml/python-usage.md": "Using the Python package",
+    "sbml/limitations.md": "Known limitations",
+    "sbml/design-notes.md": "Design notes",
 }
 
 #: Maximum number of characters on a line of an included example, and of a rendered code line.

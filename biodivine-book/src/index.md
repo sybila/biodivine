@@ -37,6 +37,7 @@ example in the book between Rust and Python:
 | library | Rust crate | Python module | what it does |
 | --- | --- | --- | --- |
 | [XML DOM](xml-dom/index.md) | `biodivine-lib-xml-dom` | `biodivine.xml_dom` | build, parse, edit, validate and serialize XML documents, with full namespace support and thread-safe documents |
+| [SBML](sbml/index.md) | `biodivine-lib-sbml` | `biodivine.sbml` | read, edit and validate SBML models, including their MathML formulas and the SBML packages |
 
 ## How to read this book
 
@@ -62,4 +63,10 @@ packages
 :maxdepth: 2
 :caption: XML DOM
 xml-dom/index
+```
+
+```{toctree}
+:maxdepth: 2
+:caption: SBML
+sbml/index
 ```

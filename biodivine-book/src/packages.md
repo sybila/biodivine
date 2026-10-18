@@ -13,7 +13,7 @@ Every library reaches Python through four layers. For the XML DOM library:
 | Rust library | `biodivine-lib-xml-dom` | a crate on crates.io | the implementation and its Rust API; no Python code |
 | `_sys` crate | `biodivine-lib-xml-dom-py-sys` | not published | one thin PyO3 wrapper per public Rust item, with no behaviour of its own |
 | native extension | `biodivine-sys` (imported as `biodivine_sys`) | a Python package on PyPI | the `_sys` crates of *all* libraries, linked into one module with a submodule per library (`biodivine_sys.xml_dom`) |
-| Python package | `biodivine` | a Python package on PyPI | one idiomatic submodule per library (`biodivine.xml_dom`), wrapping the native submodule |
+| Python package | `biodivine` | a Python package on PyPI | one idiomatic submodule per library (`biodivine.xml_dom`, `biodivine.sbml`), wrapping the native submodule |
 
 The first two layers live in the library's repository and change together: the `_sys` crate mirrors
 the Rust API item by item, so a change to the API and its wrapper is one change. The last two live

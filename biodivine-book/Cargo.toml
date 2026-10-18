@@ -13,6 +13,31 @@ publish = false
 # `path` dependencies on the submodules next to the book.
 [dependencies]
 biodivine-lib-xml-dom = { path = "../biodivine-lib-xml-dom" }
+biodivine-lib-sbml = { path = "../biodivine-lib-sbml" }
+
+[[example]]
+name = "sbml_getting_started"
+path = "examples/sbml/getting_started.rs"
+test = true
+harness = false
+
+[[example]]
+name = "sbml_validation"
+path = "examples/sbml/validation.rs"
+test = true
+harness = false
+
+[[example]]
+name = "sbml_mathml"
+path = "examples/sbml/mathml.rs"
+test = true
+harness = false
+
+[[example]]
+name = "sbml_levels"
+path = "examples/sbml/levels.rs"
+test = true
+harness = false
 
 [[example]]
 name = "xml_dom_editing"

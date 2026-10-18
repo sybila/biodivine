@@ -29,6 +29,10 @@ WORKSPACE = ROOT.parent
 CHAPTERS = {
     "xml-dom/building-documents.md": ["biodivine-lib-xml-dom/docs/assets/model.svg"],
     "xml-dom/python-usage.md": ["biodivine-lib-xml-dom/docs/assets/layers.svg"],
+    "sbml/levels-and-packages.md": [
+        "biodivine-lib-sbml/docs-images/uml-sbml-container.svg",
+    ],
+    "sbml/object-model.md": ["biodivine-lib-sbml/docs-images/uml-reaction.svg"],
 }
 
 BEGIN = "<!-- diagram: {name} -->"
